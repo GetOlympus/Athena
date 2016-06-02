@@ -25,3 +25,6 @@ defined('CONFIGS_PATH')     or define('CONFIGS_PATH', RESOURCES_PATH.'configs'.S
 defined('CONTROLLERS_PATH') or define('CONTROLLERS_PATH', RESOURCES_PATH.'controllers'.S);
 defined('SHORTCODES_PATH')  or define('SHORTCODES_PATH', RESOURCES_PATH.'shortcodes'.S);
 defined('VIEWS_PATH')       or define('VIEWS_PATH', RESOURCES_PATH.'views'.S);
+
+// The cache path, only need this if Olympus is not used.
+defined('OLH_CACHE')        or define('OLH_CACHE', RESOURCES_PATH.'cache'.S);
