@@ -24,15 +24,22 @@ return [
      * Special case: for post type support, use the "post_type" key
      *
      * @see http://codex.wordpress.org/Function_Reference/add_post_type_support
+     * @see http://codex.wordpress.org/Function_Reference/remove_post_type_support
      */
     'post_type' => [
         /**
          * Comment every support you do not need.
          *
          * @var     string  $key    The post_type slug.
-         * @param   array   $args   The features to add.
+         * @param   array   $args   The features to add with the action to make (add or remove).
          */
-        'page' => ['excerpt', 'revisions'],
+        // Supports can be:
+        //  'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks'
+        //  'custom-fields', 'comments', 'revisions', 'page-attributes', 'post-formats'
+        'page' => [
+            'add'    => ['excerpt', 'revisions'],
+            'remove' => ['thumbnail'],
+        ],
     ],
 
 

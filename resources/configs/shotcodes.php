@@ -25,7 +25,7 @@ return [
      * Special case: separator. Use the "separator_" prefix name to make it happend.
      * It does NOT accept any argument.
      */
-    'separator_1' => '',
+    //'separator_1' => '',
 
     /**
      * @var     string $key    The shortcode uniq key.
