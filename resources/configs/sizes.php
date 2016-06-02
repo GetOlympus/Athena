@@ -22,5 +22,5 @@ return [
      * @param   string      $name   Add to media selection dropdown ~~ Put an empty string if you do not want this ~~
      */
     //'size_key'    => [size_width,     size_height,    size_crop_or_not,   size_label_in_dropdown],
-    'athena-big'    => [1200, 0, true, __('1200px width format.', OL_TPL_DICTIONARY)],
+    'athena-big'    => [1200, 0, true, __('Athena big size – 1200px width.', OL_TPL_DICTIONARY)],
 ];
