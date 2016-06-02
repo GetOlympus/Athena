@@ -17,6 +17,8 @@
 return [
     /**
      * Comment every support you do not need.
+     *
+     * Set to "false" to remove the theme support.
      */
 
 
@@ -104,7 +106,7 @@ return [
     /**
      * @see http://codex.wordpress.org/Function_Reference/add_theme_support#Feed_Links
      */
-    'automatic-feed-links' => [],
+    'automatic-feed-links' => false,
 
     /**
      * @see http://codex.wordpress.org/Function_Reference/add_theme_support#HTML5
