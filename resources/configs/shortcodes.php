@@ -22,6 +22,11 @@ return [
     'media' => '',
 
     /**
+     * Each shortcode can be custimzed thanks to the Filter hook "olh_shortcodes_$key".
+     * The hook function needs 2 arguments:
+     * array    $atts       Shortcode attributes    ie. [shortcode att_1="value_1" att_2="value_2"] ... [/shortcode]
+     * string   $content    Shortcode content       ie. [shortcode...] my contents in text or raw HTML [/shortcode]
+     *
      * @var     string $key    The shortcode uniq key.
      * @param   string $file   The shortcode JS file.
      */
