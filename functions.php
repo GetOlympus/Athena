@@ -128,6 +128,9 @@ if (!class_exists('AthenaTheme')) {
              * Add simply here all your required folders.
              * Hera application will load classes as a map
              * and initialize them.
+             *
+             * @param string    $classname
+             * @param array     $components
              */
             $this->application->initComponents('athena', [
                 // Folders to load
@@ -146,6 +149,8 @@ if (!class_exists('AthenaTheme')) {
              * - SidebarsConfiguration able to add custom sidebars and widgets areas
              * - SizesConfiguration able to add custom media sizes
              * - SupportsConfiguration able to add post types and themes supports
+             *
+             * @param array $args
              */
             $this->application->initConfigs([
                 // Alias to load                => File path to associate
