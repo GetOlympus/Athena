@@ -49,7 +49,7 @@ if (!class_exists('AthenaTheme')) {
         public function __construct()
         {
             // Load Hera framework vendors.
-            if (file_exists($autoload = VENDOR_PATH.'autoload.php')) {
+            if (file_exists($autoload = VENDORPATH.'autoload.php')) {
                 include $autoload;
             }
 
@@ -150,6 +150,7 @@ if (!class_exists('AthenaTheme')) {
             $this->application->initConfigs([
                 // Alias to load                => File path to associate
                 'MenusConfiguration'            => CONFIGS_PATH.'menus.php',
+                'SettingsConfiguration'         => CONFIGS_PATH.'settings.php',
                 'ShortcodesConfiguration'       => CONFIGS_PATH.'shortcodes.php',
                 'SidebarsConfiguration'         => CONFIGS_PATH.'sidebars.php',
                 'SizesConfiguration'            => CONFIGS_PATH.'sizes.php',

@@ -14,11 +14,11 @@
  * Global constants
  */
 
-// Admin panel or not
+// Admin panel or not, constant defined in main Olympus framework (mu-plugins autoloaded)
 defined('OL_ISADMIN')       or define('OL_ISADMIN', is_admin());
 
-// Vendor package
-defined('VENDOR_PATH')      or define('VENDOR_PATH', realpath(dirname(__DIR__)).S.'vendor'.S);
+// Vendor package, constant defined in main Olympus framework
+defined('VENDORPATH')       or define('VENDORPATH', realpath(dirname(__DIR__)).S.'vendor'.S);
 
 // Paths
 defined('CONFIGS_PATH')     or define('CONFIGS_PATH', RESOURCES_PATH.'configs'.S);

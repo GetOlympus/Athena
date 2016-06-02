@@ -4,7 +4,7 @@
  * Add custom image sizes.
  *
  * @category PHP
- * @package  Athena
+ * @package  AthenaTheme
  * @author   Achraf Chouk <achrafchouk@gmail.com>
  * @license  https://github.com/GetOlympus/Athena/blob/master/LICENSE MIT
  * @link     https://github.com/GetOlympus/Athena
