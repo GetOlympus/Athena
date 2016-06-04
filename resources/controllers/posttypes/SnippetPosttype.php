@@ -11,9 +11,6 @@ class SnippetPosttype extends HeraPosttype
 
     public function __construct()
     {
-        // Parent constructor
-        parent::__construct();
-
         // Update args
         $this->args = [
             'capability_type' => 'post',
@@ -41,5 +38,8 @@ class SnippetPosttype extends HeraPosttype
                 'title' => __('Code', OL_TPL_DICTIONARY),
             ]),
         ];
+
+        // Parent constructor
+        parent::__construct();
     }
 }
