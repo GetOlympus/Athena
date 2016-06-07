@@ -49,7 +49,6 @@ class SnippetLatestsWidget extends \GetOlympus\Hera\Widget\Controller\Widget
     public function display($instance = [])
     {
         // Work on vars
-        $title = isset($instance['title']) ? $instance['title'] : '';
         $number = isset($instance['number']) ? $instance['number'] : 5;
 
         // Get recent video posts
@@ -64,9 +63,6 @@ class SnippetLatestsWidget extends \GetOlympus\Hera\Widget\Controller\Widget
         }
 
         // Display
-        echo $this->before;
-            echo !empty($title) ? $this->before_title.$title.$this->after_title : '';
-            include $this->template;
-        echo $this->after;
+        include $this->template;
     }
 }
