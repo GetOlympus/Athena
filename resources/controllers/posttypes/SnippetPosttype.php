@@ -2,15 +2,13 @@
 
 namespace AthenaTheme\Controllers\Posttypes;
 
-use GetOlympus\Field;
-use GetOlympus\Hera\Posttype\Controller\Posttype as HeraPosttype;
-
-class SnippetPosttype extends HeraPosttype
+class SnippetPosttype extends \GetOlympus\Hera\Posttype\Controller\Posttype
 {
-    protected $slug = 'snippet';
-
-    public function __construct()
+    public function setVars()
     {
+        // Update slug
+        $this->slug = 'snippet';
+
         // Update args
         $this->args = [
             'capability_type' => 'post',
@@ -18,6 +16,7 @@ class SnippetPosttype extends HeraPosttype
             'hierarchical' => false,
             'menu_icon' => 'dashicons-editor-code',
             'public' => true,
+            'publicly_queryable' => true,
             'query_var' => true,
             'show_ui' => true,
             'menu_position' => 5,
@@ -34,12 +33,9 @@ class SnippetPosttype extends HeraPosttype
 
         // Update fields
         $this->fields = [
-            Field\Code::build('code', [
+            \GetOlympus\Field\Code::build('code', [
                 'title' => __('Code', OL_TPL_DICTIONARY),
             ]),
         ];
-
-        // Parent constructor
-        parent::__construct();
     }
 }

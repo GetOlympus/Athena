@@ -2,8 +2,6 @@
 
 namespace AthenaTheme;
 
-use GetOlympus\Hera\Hera;
-
 /**
  * Everything starts here.
  *
@@ -31,112 +29,21 @@ require_once RESOURCES_PATH.'constants.php';
  */
 
 if (!class_exists('AthenaTheme')) {
-    class AthenaTheme
+    class AthenaTheme extends \GetOlympus\Hera\Hera
     {
-        /**
-         * @var GetOlympus\Hera\Hera
-         */
-        protected $application = null;
-
-        /**
-         * @var AthenaTheme
-         */
-        protected static $instance = null;
-
         /**
          * Constructor.
          */
-        public function __construct()
+        protected function setVars()
         {
             // Load Hera framework vendors.
             if (file_exists($autoload = VENDORPATH.'autoload.php')) {
                 include $autoload;
             }
 
-            // Check Hera framework.
-            $this->check();
-        }
-
-        /**
-         * Check if Hera Application class is loaded.
-         */
-        protected function check()
-        {
-            // Die everything properly
-            if (!class_exists('GetOlympus\Hera\Hera')) {
-                // Admin panel
-                if (OL_ISADMIN) {
-                    add_filter('admin_notices', function () {
-                        $content = '<div id="message" class="error">';
-                        $content .= '<p>'.__('This theme works especially with the <b>Hera library</b>. Please, go to <a href="https://github.com/GetOlympus/Hera" target="_blank">the official repository</a> and download the package in your mu-plugins folder.').'</p>';
-                        $content .= '</div>';
-                    });
-
-                    return;
-                }
-
-                // Frontend panel
-                wp_die(__('The <strong>Athena theme</strong> cannot work properly. Please, contact your administrator.'));
-                return;
-            }
-
-            // Instanciate a new Hera application
-            $this->application = new Hera();
-
-            // Load custom components
-            $this->load();
-        }
-
-        /**
-         * Gets the application.
-         *
-         * @return AthenaTheme
-         */
-        public function getApplication()
-        {
-            return $this->application;
-        }
-
-        /**
-         * Gets the value of instance.
-         *
-         * @return AthenaTheme
-         */
-        public static function getInstance()
-        {
-            if (is_null(static::$instance)) {
-                static::$instance = new static();
-            }
-
-            return static::$instance;
-        }
-
-        /**
-         * Load custom components.
-         *
-         * @return AthenaTheme
-         */
-        protected function load()
-        {
             /**
-             * Work here.
+             * Start working here.
              */
-
-            /**
-             * Initialize custom components.
-             *
-             * Add simply here all your required folders.
-             * Hera application will load classes as a map
-             * and initialize them.
-             *
-             * @param string    $classname
-             * @param array     $components
-             */
-            $this->application->initComponents('athena', [
-                // Folders to load
-                CONTROLLERS_PATH.'posttypes',
-                CONTROLLERS_PATH.'widgets',
-            ]);
 
             /**
              * Initialize configurations
@@ -145,6 +52,7 @@ if (!class_exists('AthenaTheme')) {
              * You can init 5 kinds of configurators:
              *
              * - MenusConfiguration able to add custom menus navigation
+             * - SettingsConfiguration able to add custom backend and frontend settings
              * - ShortcodesConfiguration able to add custom shortcodes
              * - SidebarsConfiguration able to add custom sidebars and widgets areas
              * - SizesConfiguration able to add custom media sizes
@@ -152,7 +60,7 @@ if (!class_exists('AthenaTheme')) {
              *
              * @param array $args
              */
-            $this->application->initConfigs([
+            $this->configurations = [
                 // Alias to load                => File path to associate
                 'MenusConfiguration'            => CONFIGS_PATH.'menus.php',
                 'SettingsConfiguration'         => CONFIGS_PATH.'settings.php',
@@ -160,10 +68,28 @@ if (!class_exists('AthenaTheme')) {
                 'SidebarsConfiguration'         => CONFIGS_PATH.'sidebars.php',
                 'SizesConfiguration'            => CONFIGS_PATH.'sizes.php',
                 'SupportsConfiguration'         => CONFIGS_PATH.'supports.php',
-            ]);
+            ];
+
+            /**
+             * Initialize custom components.
+             *
+             * Add simply here all your required folders.
+             * Hera application will load classes as a map
+             * and initialize them.
+             * You can init 3 kinds of objects:
+             *
+             * - posttypes which contains all your custom post types
+             * - terms which contains all your custom terms and taxonomies
+             * - widgets which contains all your custom widgets
+             *
+             * @param string    $folderpath
+             */
+            $this->posttypes    = CONTROLLERS_PATH.'posttypes';
+            $this->terms        = CONTROLLERS_PATH.'terms';
+            $this->widgets      = CONTROLLERS_PATH.'widgets';
         }
     }
 }
 
 // Instanciate AthenaTheme
-$athena = AthenaTheme::getInstance();
+$athena = new AthenaTheme();

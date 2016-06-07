@@ -32,6 +32,12 @@ return [
 
     /**
      * @var     string  $key    The setting uniq key.
+     * @param   array   $args   Admin CSS improvements.
+     */
+    'admin-css' => true,
+
+    /**
+     * @var     string  $key    The setting uniq key.
      * @param   string  $html   HTML snippet to display.
      *
      * @see     https://developer.wordpress.org/reference/hooks/admin_footer_text/
@@ -45,25 +51,26 @@ return [
      * @see     https://codex.wordpress.org/Plugin_API/Filter_Reference/menu_order
      */
     'admin-menu-order' => [
-        'index.php',                // Dashboard
+        'index.php',                    // Dashboard
 
         'separator1',
 
-        'edit.php',                 // Posts
-        'edit.php?post_type=page',  // Pages
-        'upload.php',               // Medias
+        'edit.php',                     // Posts
+        'edit.php?post_type=snippet',   // Snippets
+        'edit.php?post_type=page',      // Pages
+        'upload.php',                   // Medias
 
         'separator2',
 
-        'edit-comments.php',        // Comments
-        'users.php',                // Users
+        'edit-comments.php',            // Comments
+        'users.php',                    // Users
 
         'separator-last',
 
-        'themes.php',               // Appearance
-        'plugins.php',              // Plugins
-        'tools.php',                // Tools
-        'options-general.php',      // Settings
+        'themes.php',                   // Appearance
+        'plugins.php',                  // Plugins
+        'tools.php',                    // Tools
+        'options-general.php',          // Settings
     ],
 
     /**
@@ -128,6 +135,12 @@ return [
      * @see     https://developer.wordpress.org/reference/hooks/login_head/
      */
     'login-shake' => false,
+
+    /**
+     * @var     string  $key    The setting uniq key.
+     * @param   boolean $style  Define wether if WP login has to be redesigned or not.
+     */
+    'login-style' => true,
 
     /**
      * @var     string  $key    The setting uniq key.

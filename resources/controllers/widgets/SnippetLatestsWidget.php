@@ -2,22 +2,19 @@
 
 namespace AthenaTheme\Controllers\Widgets;
 
-use GetOlympus\Field;
-use GetOlympus\Hera\Widget\Controller\Widget as HeraWidget;
-
-class SnippetLatestsWidget extends HeraWidget
+class SnippetLatestsWidget extends \GetOlympus\Hera\Widget\Controller\Widget
 {
-    public function __construct()
+    public function setVars()
     {
-        // Update temlpate
-        $this->template = VIEWS_PATH.'widgets'.S.'snippet_latests.php';
+        // Update classname
+        $this->classname = 'snippet_latests';
 
         // Update fields
         $this->fields = [
-            Field\Text::build('title', [
+            \GetOlympus\Field\Text::build('title', [
                 'title' => __('Title', OL_TPL_DICTIONARY),
             ]),
-            Field\Text::build('number', [
+            \GetOlympus\Field\Text::build('number', [
                 'title' => __('Choose how many snippets to display', OL_TPL_DICTIONARY),
                 'options' => [
                     'type' => 'number',
@@ -26,6 +23,22 @@ class SnippetLatestsWidget extends HeraWidget
                 ],
             ]),
         ];
+
+        // Update options
+        $this->options = [
+            'width' => 480,
+        ];
+
+        // Update settings
+        $this->settings = [
+            'description' => __('Get the latest snippets', OL_TPL_DICTIONARY),
+        ];
+
+        // Update temlpate
+        $this->template = VIEWS_PATH.'widgets'.S.'snippet_latests.php';
+
+        // Update title
+        $this->title = __('Latest snippets', OL_TPL_DICTIONARY);
     }
 
     /**
