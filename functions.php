@@ -84,9 +84,20 @@ if (!class_exists('AthenaTheme')) {
              *
              * @param string    $folderpath
              */
-            $this->posttypes    = CONTROLLERS_PATH.'posttypes';
-            $this->terms        = CONTROLLERS_PATH.'terms';
-            $this->widgets      = CONTROLLERS_PATH.'widgets';
+            $this->paths = [
+                CONTROLLERS_PATH.'posttypes',
+                CONTROLLERS_PATH.'terms',
+            ];
+
+            /**
+             * Initialize custom widgets.
+             *
+             * Widgets are separated from the others components
+             * because they need a specific hook.
+             *
+             * @param string    $folderpath
+             */
+            $this->widgets = CONTROLLERS_PATH.'widgets';
         }
     }
 }
